@@ -1,14 +1,13 @@
 .lista {
-  min-height: 100vh;
-
-  background-image: url("/images/imagem_fundo.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  padding: 40px 20px;
-
-  position: relative;
+     min-height: 100vh;
+    background-color: #fdfaf7;
+    background-image: url(/images/imagem_fundo.png), url(/images/imagem_fundo.png);
+    background-repeat: repeat-y, repeat-y;
+    background-position: left top, right top;
+    background-size: 300px, 280px;
+    padding: 40px 20px;
+    position: relative;
+    max-width: 500px;
 }
 
 .lista::before {

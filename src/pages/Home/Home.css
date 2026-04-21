@@ -16,7 +16,7 @@
 
   justify-content: flex-start; /* 👈 IMPORTANTE */
 
-  padding-top: 230px; /* 👈 CONTROLA A ALTURA */
+  
     background: linear-gradient(
     rgba(253, 250, 247, 0.6) 0%,
     rgba(253, 250, 247, 0.85) 40%,
@@ -36,8 +36,30 @@
   margin-bottom: 10px;
 }
 
+@keyframes fadeUpSoft {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .home__title span {
-  display: block;
+   display: block;
+  opacity: 0;
+
+  animation: fadeUpSoft 0.8s ease forwards;
+}
+/* delay elegante */
+.home__title span:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.home__title span:nth-child(2) {
+  animation-delay: 0.5s;
 }
 
 .home__subtitle {
@@ -47,13 +69,25 @@
   animation: fadeUp 1.2s ease;
 }
 
+@keyframes fadeUpCard {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 /* 💎 cards premium */
 .home__cards {
   display: flex;
   gap: 16px;
-  margin-top: 30px;
+  margin-top: 120px;
   flex-wrap: wrap;
   padding: 24px;
+  
 }
 
 /* 💍 card elegante */
@@ -71,12 +105,22 @@
 
   cursor: pointer;
   transition: 0.3s;
+    opacity: 0;
+  animation: fadeUpCard 0.6s ease forwards;
+}
+
+/* efeito cascata */
+.home__card:nth-child(1) {
+  animation-delay: 0.8s;
+}
+
+.home__card:nth-child(2) {
+  animation-delay: 1s;
 }
 
 /* hover leve */
-.home__card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.08);
+.home__card:focus {
+  transform: scale(1.05) !important;
 }
 
 /* título do card */

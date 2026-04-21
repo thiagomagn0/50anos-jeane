@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import type { Reserva } from "../../types/Reserva";
 import "./Lista.css";
 import { db } from "../../services/firebase";
-
+import { ThankYouModal } from "../../components/AgradecimentoModal/AgradecimentoModal";
 
 
 
@@ -44,7 +44,7 @@ const initialItems: GiftItem[] = [
   { id: 30, name: "Organizador de armário", image: "", store: "", color: "", note: "", total: 5, reserved: [] },
   { id: 31, name: "Forma cupcake silicone", image: "", store: "", color: "", note: "", total: 2, reserved: [] },
   { id: 32, name: "Kit de banheiro", image: "", store: "", color: "", note: "", total: 2, reserved: [] },
-  { id: 32, name: "Jogo de Panelas", image: "/images/jogo_panela_tramontina.jpeg", store: "", color: "", note: "", total: 1, reserved: [] },
+  { id: 33, name: "Jogo de Panelas", image: "/images/jogo_panela_tramontina.jpeg", store: "", color: "", note: "", total: 1, reserved: [] },
 ];
 
 export default function Lista() {
@@ -56,7 +56,7 @@ export default function Lista() {
     phone: "",
   });
 const [loading, setLoading] = useState(false);
-
+const [showThankYou, setShowThankYou] = useState(false);
 const fetchReservas = async () => {
   const snapshot = await getDocs(collection(db, "reservas"));
 
@@ -107,13 +107,14 @@ const handleReserve = async () => {
     setForm({ name: "", phone: "" });
     setSelectedItem(null);
 
-    alert("Presente confirmado com sucesso 💍✨");
+    setShowThankYou(true);
 
   } catch (error) {
     console.error("ERRO:", error);
     alert("Erro ao salvar 😢");
   } finally {
     setLoading(false);
+
   }
 };
 useEffect(() => {
@@ -156,6 +157,11 @@ useEffect(() => {
         loading={loading}
       />
     )}
+
+    <ThankYouModal
+  isOpen={showThankYou}
+  onClose={() => setShowThankYou(false)}
+/>
   </div>
 );
 }

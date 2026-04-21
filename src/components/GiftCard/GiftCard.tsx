@@ -16,7 +16,7 @@ export function GiftCard({ item, onSelect, style }: Props) {
   return (
     <div className="gift-card" style={style}>
       <img
-        src={item.image}
+        src={item.image || "/images/sem_imagem.jpg"}
         alt={item.name}
         className="gift-card__image"
         onClick={() => setIsOpen(true)}
@@ -57,7 +57,7 @@ export function GiftCard({ item, onSelect, style }: Props) {
         onClick={(e) => e.stopPropagation()}
       >
         <img
-          src={item.image}
+          src={item.image || "/images/sem_imagem.jpg"}
           className="image-modal__img"
         />
       </div>
