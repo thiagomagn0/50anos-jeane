@@ -1,6 +1,6 @@
 .home {
   height: 100vh;
-  background-image: url("public/images/foto-casal.jpg");
+  background-image: url("/images/foto-casal.jpg");
   background-size: cover;
   background-position: center;
   position: relative;
