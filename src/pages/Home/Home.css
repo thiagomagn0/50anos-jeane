@@ -23,13 +23,21 @@
     rgba(253, 250, 247, 0.95) 100%
   );
 }
+@keyframes floatSoft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
 
 /* ✨ título elegante */
 .home__title {
   font-family: 'Playfair Display', serif;
   font-size: 42px;
   color: #5c4b44;
-
+  animation: fadeUpSoft 1s ease, floatSoft 4s ease-in-out infinite;
   text-align: center;
   line-height: 1.2;
 

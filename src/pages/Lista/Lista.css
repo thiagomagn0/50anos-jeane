@@ -18,7 +18,18 @@ background: rgba(253, 250, 247, 0.534);
 
   z-index: 0;
 }
-.lista__header,
+h1 {
+  margin:0;
+}
+.lista__header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  z-index: 1;
+  gap: 16px;
+}
+
 .lista__grid {
   position: relative;
   display: flex;
@@ -26,4 +37,5 @@ background: rgba(253, 250, 247, 0.534);
   flex-wrap: wrap;
   z-index: 1;
   gap: 16px;
+  margin-top:24px;
 }

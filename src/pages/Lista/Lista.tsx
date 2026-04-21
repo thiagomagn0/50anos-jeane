@@ -130,7 +130,7 @@ useEffect(() => {
     <header className="lista__header">
       <h1 className="lista__title">Lista de Presentes</h1>
       <p className="lista__subtitle">
-        Escolha com carinho 💍
+        Escolha com carinho!
       </p>
     </header>
 
