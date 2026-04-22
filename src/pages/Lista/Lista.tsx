@@ -8,7 +8,7 @@ import type { Reserva } from "../../types/Reserva";
 import "./Lista.css";
 import { db } from "../../services/firebase";
 import { ThankYouModal } from "../../components/AgradecimentoModal/AgradecimentoModal";
-
+import confetti from "canvas-confetti";
 
 
 const initialItems: GiftItem[] = [
@@ -55,6 +55,11 @@ export default function Lista() {
     name: "",
     phone: "",
   });
+//   const playSound = () => {
+//   const audio = new Audio("/sounds/success.wav");
+//   audio.volume = 0.3;
+//   audio.play();
+// };
 const [loading, setLoading] = useState(false);
 const [showThankYou, setShowThankYou] = useState(false);
 const fetchReservas = async () => {
@@ -82,7 +87,15 @@ const fetchReservas = async () => {
     })
   );
 };
+const handleSelectItem = (item: GiftItem) => {
+  setSelectedItem(item);
 
+  // 👇 AQUI
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
 const handleReserve = async () => {
   if (!form.name || !form.phone) {
     alert("Preencha todos os campos");
@@ -90,7 +103,10 @@ const handleReserve = async () => {
   }
 
   if (!selectedItem) return;
-
+  if (form.phone.length < 10) {
+    alert("Telefone inválido");
+    return;
+  }
   try {
     setLoading(true);
 
@@ -107,8 +123,22 @@ const handleReserve = async () => {
     setForm({ name: "", phone: "" });
     setSelectedItem(null);
 
-    setShowThankYou(true);
+  
+   confetti({
+    particleCount: 120,
+    spread: 80,
+    origin: { y: 0.6 },
+    zIndex: 9999, // 🔥 ESSENCIAL
+  });
+    
 
+     
+      setShowThankYou(true);
+    
+
+    setTimeout(() => {
+      setShowThankYou(false);
+    }, 3000);
   } catch (error) {
     console.error("ERRO:", error);
     alert("Erro ao salvar 😢");
@@ -139,7 +169,7 @@ useEffect(() => {
         <GiftCard
           key={item.id}
           item={item}
-          onSelect={setSelectedItem}
+          onSelect={handleSelectItem}
           style={{
             animationDelay: `${index * 0.15}s`,
           }}

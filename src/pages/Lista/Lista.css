@@ -1,23 +1,19 @@
+
 .lista {
-     min-height: 100vh;
-    background-color: #fdfaf7;
-    background-image: url(/images/imagem_fundo.png), url(/images/imagem_fundo.png);
-    background-repeat: repeat-y, repeat-y;
-    background-position: left top, right top;
-    background-size: 300px, 280px;
-    padding: 40px 20px;
-    position: relative;
-    max-width: 500px;
+  min-height: 100vh;
+  background-image: url("/images/imagem_fundo.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* 🔥 ISSO AQUI */
+  padding: 0px 55px;
+  max-width: 500px;
+  margin: 0 auto;
+
+  position: relative;
 }
 
-.lista::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-background: rgba(253, 250, 247, 0.534);
 
-  z-index: 0;
-}
+
 h1 {
   margin:0;
 }
@@ -28,14 +24,27 @@ h1 {
   flex-wrap: wrap;
   z-index: 1;
   gap: 16px;
+  margin-top: 56px;
+}
+.lista__title {
+  font-family: 'Playfair Display', serif;
+  text-align: center;  
+  color: #5c4b44;
+  line-height: 1;
+}
+.lista__subtitle {
+  font-family: 'Playfair Display', serif;
+  text-align: center;  
+  color: #5c4b44;
+  line-height: 1;
 }
 
 .lista__grid {
-  position: relative;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  z-index: 1;
   gap: 16px;
-  margin-top:24px;
+  margin-top: 24px;
+  position: relative; /* 🔥 REMOVE absolute */
 }
+
+

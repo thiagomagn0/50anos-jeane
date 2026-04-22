@@ -15,6 +15,11 @@ export default function Home() {
 
        <div className="home__cards">
 
+          <div className="home__card" onClick={() => navigate("/confirmacao")}>
+            <p className="home__card-title">Confirmar Presença</p>
+            <p className="home__card-subtitle">Nos avise se virá 💛</p>
+          </div>
+
           <div className="home__card" onClick={() => navigate("/lista")}>
             <p className="home__card-title">Lista de Presentes</p>
             <p className="home__card-subtitle">Escolha com carinho</p>
@@ -30,7 +35,7 @@ export default function Home() {
         <Countdown />
       <div className="home__whatsapp">
   <a
-          href="https://wa.me/5599999999999"
+          href="https://wa.me/5571999691099"
           target="_blank"
           className="home__whatsapp"
         >

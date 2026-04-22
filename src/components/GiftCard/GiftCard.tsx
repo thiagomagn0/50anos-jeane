@@ -48,6 +48,7 @@ export function GiftCard({ item, onSelect, style }: Props) {
       >
         {isFull ? "Esgotado" : "Presentear"}
       </button>
+      
      {isOpen &&
   createPortal(
     <div className="image-modal" onClick={() => setIsOpen(false)}>

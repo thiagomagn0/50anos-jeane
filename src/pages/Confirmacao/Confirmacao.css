@@ -1,0 +1,60 @@
+.confirmacao {
+  min-height: 100vh;
+  background-image: url("/images/imagem_fundo.png");
+  background-size: cover;
+  background-position: center;  
+  padding: 40px 24px;
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+}
+
+
+
+.confirmacao__title {
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: #5c4b44;
+  line-height: 1;
+}
+.content__card {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    height: 50vh;
+}
+.confirmacao__card {
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(6px);
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid #eaded6;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.confirmacao__input,
+.confirmacao__select {
+  padding: 10px;
+
+   border-radius: 12px;
+  border: 1px solid #e5d5c8;
+
+  background: rgba(255,255,255,0.6);
+  color: #382e2a;
+  font-size: 14px;
+}
+
+.confirmacao__button {
+  background: #d8a48f;
+  color: white;
+
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+}

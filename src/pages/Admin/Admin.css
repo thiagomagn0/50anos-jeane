@@ -1,0 +1,84 @@
+.admin {
+  min-height: 100vh;
+  background-image: url("/images/imagem_fundo.png");
+  background-size: cover;
+  background-position: center;
+  padding: 0px 68px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* título */
+.admin__title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  text-align: center;
+  color: #5c4b44;
+  margin-bottom: 25px;
+  margin-top: 40px;
+}
+
+/* 📊 stats */
+.admin__stats {
+  display: grid;
+  gap: 10px;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  
+  grid-template-columns: repeat(2, 1fr); /* 👈 melhor layout */
+  gap: 10px;
+}
+
+.admin__stat {
+  flex: 1;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(6px);
+  padding: 15px;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid #eaded6;
+  
+}
+
+.admin__stat-number {
+  font-size: 22px;
+  font-weight: bold;
+  color: #5c4b44;
+}
+
+.admin__stat-label {
+  font-size: 12px;
+  color: #8a7a73;
+}
+
+/* 📦 lista */
+.admin__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* card */
+.admin__card {
+  background: linear-gradient(180deg, #fdf7f2, #f7efe8);
+
+  padding: 16px;
+  border-radius: 16px;
+
+  border: 1px solid #eaded6;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.admin__item {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.admin__section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: #5c4b44;
+
+  margin: 25px 0 10px;
+}

@@ -88,6 +88,9 @@
   cursor: pointer;
   transition: 0.3s;
 }
+.gift-card__button:active {
+  transform: scale(0.96);
+}
 
 /* hover elegante */
 .gift-card__button:hover {
