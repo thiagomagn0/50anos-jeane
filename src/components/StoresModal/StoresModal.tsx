@@ -1,6 +1,7 @@
 
 import "./StoreModal.css";
 import { useEffect, useState } from "react"
+import type { MouseEvent } from "react";
 type Props = {
   query: string;
   onClose: () => void;
@@ -16,7 +17,23 @@ export function StoresModal({ query, onClose }: Props) {
       icon: "/icons/google.jpg",
     },
   ];
+const createRipple = (e: MouseEvent<HTMLButtonElement>) => {
+  const button = e.currentTarget;
 
+  const circle = document.createElement("span");
+  const diameter = Math.max(button.clientWidth, button.clientHeight);
+
+  circle.style.width = circle.style.height = `${diameter}px`;
+  circle.style.left = `${e.clientX - button.offsetLeft - diameter / 2}px`;
+  circle.style.top = `${e.clientY - button.offsetTop - diameter / 2}px`;
+
+  circle.classList.add("ripple");
+
+  const ripple = button.getElementsByClassName("ripple")[0];
+  if (ripple) ripple.remove();
+
+  button.appendChild(circle);
+};
   const stores = [
     {
       name: "Mercado Livre",
@@ -37,7 +54,13 @@ export function StoresModal({ query, onClose }: Props) {
       document.body.style.overflow = "auto";
     };
   }, []);
+useEffect(() => {
+  document.body.classList.add("modal-open");
 
+  return () => {
+    document.body.classList.remove("modal-open");
+  };
+}, []);
 const handleClose = () => {
   // 📳 vibração segura
   if ("vibrate" in navigator) {
@@ -68,22 +91,32 @@ const handleClose = () => {
 
         {recommended.map((store) => (
           <button
-            key={store.name}
-            className="sheet-item highlight"
-            onClick={() => window.open(store.url, "_blank")}
-          >
-            <div className="sheet-left">
-              <img src={store.icon} className="sheet-logo" />
-              <div>
-                <p className="sheet-name">{store.name}</p>              
-              </div>
-            </div>
+  key={store.name}
+  className="sheet-item highlight"
+  onClick={(e) => {
+    createRipple(e);
 
-            <div className="sheet-right">
-              <span className="sheet-action">Abrir mapa</span>
-              <span className="sheet-arrow">›</span>
-            </div>
-          </button>
+    if ("vibrate" in navigator) {
+      navigator.vibrate(15);
+    }
+
+   
+
+    window.open(store.url, "_blank");
+  }}
+>
+  <div className="sheet-left">
+    <img src={store.icon} className="sheet-logo" />
+    <div>
+      <p className="sheet-name">{store.name}</p>
+    </div>
+  </div>
+
+  <div className="sheet-right">
+    <span className="sheet-action">Ver ofertas</span>
+    <span className="sheet-arrow">›</span>
+  </div>
+</button>
         ))}
 
         {/* 🔥 OUTRAS LOJAS */}
@@ -91,22 +124,32 @@ const handleClose = () => {
         <div className="content__sheet-item">
             {stores.map((store) => (
                 <button
-                    key={store.name}
-                    className="sheet-item"
-                    onClick={() => window.open(store.url, "_blank")}
-                >
-                    <div className="sheet-left">
-                    <img src={store.icon} className="sheet-logo" />
-                    <div>
-                        <p className="sheet-name">{store.name}</p>               
-                    </div>
-                    </div>
+  key={store.name}
+  className="sheet-item"
+  onClick={(e) => {
+    createRipple(e);
 
-                    <div className="sheet-right">
-                    <span className="sheet-action">Abrir loja</span>
-                    <span className="sheet-arrow">›</span>
-                    </div>
-                </button>
+    if ("vibrate" in navigator) {
+      navigator.vibrate(15);
+    }
+
+    
+
+    window.open(store.url, "_blank");
+  }}
+>
+  <div className="sheet-left">
+    <img src={store.icon} className="sheet-logo" />
+    <div>
+      <p className="sheet-name">{store.name}</p>
+    </div>
+  </div>
+
+  <div className="sheet-right">
+    <span className="sheet-action">Ver ofertas</span>
+    <span className="sheet-arrow">›</span>
+  </div>
+</button>
                 ))}
         </div>
    
