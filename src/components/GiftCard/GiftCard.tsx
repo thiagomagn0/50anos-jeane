@@ -7,14 +7,17 @@ import { createPortal } from "react-dom";
 type Props = {
   item: GiftItem;
   onSelect: (item: GiftItem) => void;
+  onViewStores: (itemName: string) => void;
   style?: CSSProperties;
 };
 
-export function GiftCard({ item, onSelect, style }: Props) {
+export function GiftCard({ item, onSelect, onViewStores, style }: Props) {
   const isFull = item.reserved.length >= item.total;
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="gift-card" style={style}>
+      
       <img
         src={item.image || "/images/sem_imagem.jpg"}
         alt={item.name}
@@ -24,16 +27,21 @@ export function GiftCard({ item, onSelect, style }: Props) {
 
       <h2 className="gift-card__title">{item.name}</h2>
 
-      <p className="gift-card__info">Cor: {item.color}</p>
-      <p className="gift-card__info">Obs: {item.note}</p>
+      {item.color && (
+        <p className="gift-card__info">Cor: {item.color}</p>
+      )}
 
-      <a
-        href={item.store}
-        target="_blank"
-        className="gift-card__link"
+      {item.note && (
+        <p className="gift-card__info">Obs: {item.note}</p>
+      )}
+
+      {/* 🔥 BOTÃO NOVO */}
+      <button
+        className="gift-card__button-secondary"
+        onClick={() => onViewStores(item.name)}
       >
-        Ver loja
-      </a>
+        Comparar preços 🛒
+      </button>
 
       <p className="gift-card__progress">
         {item.reserved.length}/{item.total} presenteado
@@ -48,33 +56,32 @@ export function GiftCard({ item, onSelect, style }: Props) {
       >
         {isFull ? "Esgotado" : "Presentear"}
       </button>
-      
-     {isOpen &&
-  createPortal(
-    <div className="image-modal" onClick={() => setIsOpen(false)}>
-      
-      <div
-        className="image-modal__img-wrapper"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <img
-          src={item.image || "/images/sem_imagem.jpg"}
-          className="image-modal__img"
-        />
-      </div>
 
-      <button
-        className="image-modal__close"
-        onClick={() => setIsOpen(false)}
-      >
-        ✕
-      </button>
+      {/* 🔍 MODAL DE IMAGEM */}
+      {isOpen &&
+        createPortal(
+          <div className="image-modal" onClick={() => setIsOpen(false)}>
+            
+            <div
+              className="image-modal__img-wrapper"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={item.image || "/images/sem_imagem.jpg"}
+                className="image-modal__img"
+              />
+            </div>
 
-    </div>,
-    document.body
-  )
-}
+            <button
+              className="image-modal__close"
+              onClick={() => setIsOpen(false)}
+            >
+              ✕
+            </button>
+
+          </div>,
+          document.body
+        )}
     </div>
-    
   );
 }

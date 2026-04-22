@@ -1,0 +1,17 @@
+.store {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+
+  background: #fff;
+  padding: 10px;
+  border-radius: 12px;
+
+  align-items: center;
+}
+
+.store img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
