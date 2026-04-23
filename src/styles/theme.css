@@ -1,0 +1,32 @@
+/* 🎨 PALETA */
+:root {
+  /* cores principais */
+  --color-primary: #c88f76;
+  --color-primary-hover: #b97d63;
+
+  /* fundos */
+  --color-bg-main: #f3e6dc;
+  --color-bg-soft: #e7dfd9;
+  --color-bg-white: #ffffff;
+
+  /* texto */
+  --color-text-main: #5c4b44;
+  --color-text-light: #8c807a;
+
+  /* borda */
+  --color-border: #d6c6bb;
+
+  /* sombra */
+  --shadow-soft: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-medium: 0 8px 20px rgba(0,0,0,0.12);
+
+  /* radius */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+
+  /* espaçamento */
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 20px;
+}

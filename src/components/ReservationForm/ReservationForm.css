@@ -1,3 +1,5 @@
+
+
 .form {
   margin-top: 20px;
   padding: 16px;
@@ -191,4 +193,171 @@
   border: none;
 
   cursor: pointer;
+}
+
+/* overlay */
+.sheet-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 9999;
+  animation: overlayFade 0.25s ease;
+  backdrop-filter: blur(6px);
+}
+
+/* modal */
+.sheet {
+  width: 100%;
+  max-width: 500px;
+  background: #f3e6dc;
+  border-radius: 24px 24px 0 0;
+  padding: 20px;
+  animation: sheetEnter 0.35s cubic-bezier(0.22,1,0.36,1);
+}
+
+/* handle */
+.sheet-handle {
+  width: 40px;
+  height: 5px;
+  background: #ddd;
+  border-radius: 10px;
+  margin: 0 auto 10px;
+}
+
+/* textos */
+.sheet-title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.sheet-subtitle {
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+/* inputs */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group input {
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid #d6c6bb;
+  background: #e7dfd9;
+  color: #5c4b44;
+  font-size: 14px;
+  outline: none;
+}
+
+.form-group input::placeholder {
+  color: #8c807a;
+}
+
+/* botão principal */
+.sheet-confirm {
+  margin-top: 12px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 20px;
+  border: none;
+
+  background: #c88f76;
+  color: white;
+
+  font-weight: 600;
+  cursor: pointer;
+font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.sheet-confirm:hover {
+  background: #b97d63;
+  transform: scale(1.02);
+}
+.sheet-confirm:active {
+  transform: scale(0.97);
+}
+
+/* PIX */
+.pix {
+      margin-top: 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pix__title {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.pix__key {
+  font-size: 12px;
+  margin-bottom: 10px;
+  color: #777;
+}
+
+.pix__button {
+  margin-top: 10px;  
+  
+  padding: 14px;
+  border-radius: 16px;
+  border: none;
+
+  background: #c88f76;
+  color: white;
+
+  font-weight: 400;
+  cursor: pointer;
+    font-size: 10px;
+  transition: all 0.2s ease;
+}
+
+/* fechar */
+.sheet-close {
+  margin-top: 12px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: #eee;
+}
+
+/* animações */
+@keyframes sheetEnter {
+  0% { transform: translateY(100%); }
+  70% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes overlayFade {
+  from { background: rgba(0,0,0,0); }
+  to { background: rgba(0,0,0,0.35); }
+}
+
+/* saída */
+.slide-down {
+  animation: sheetExit 0.3s ease forwards;
+}
+
+.fade-out {
+  animation: overlayFadeOut 0.3s ease forwards;
+}
+
+@keyframes sheetExit {
+  to { transform: translateY(100%); }
+}
+
+@keyframes overlayFadeOut {
+  to { background: rgba(0,0,0,0); }
 }

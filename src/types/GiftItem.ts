@@ -4,8 +4,9 @@ export type GiftItem = {
   image: string;
   store: string;
   color: string;
-  material: string; // 🔥 NOVO
+  material: string;
   note: string;
+  price?: number; // 🔥 NOVO (IMPORTANTE)
   total: number;
   reserved: {
     name: string;

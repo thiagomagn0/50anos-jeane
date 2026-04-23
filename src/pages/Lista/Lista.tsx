@@ -9,47 +9,48 @@ import { db } from "../../services/firebase";
 import { ThankYouModal } from "../../components/AgradecimentoModal/AgradecimentoModal";
 import confetti from "canvas-confetti";
 import { StoresModal } from "../../components/StoresModal/StoresModal";
+import { useToast } from "../../hooks/useToast";
+
 
 const initialItems: GiftItem[] = [
-  { id: 1, name: "Porta condimentos", image: "/images/porta_condimentos.jpeg", store: "", color: "Natural", material: "Bambu", note: "", total: 1, reserved: [] },
-  { id: 2, name: "Pano de prato", image: "", store: "", color: "Branco", material: "Algodão", note: "", total: 5, reserved: [] },
-  { id: 3, name: "Cortina", image: "", store: "", color: "Bege", material: "Linho", note: "", total: 2, reserved: [] },
-  { id: 4, name: "Cafeteira", image: "", store: "", color: "Preta", material: "Inox", note: "", total: 1, reserved: [] },
-  { id: 5, name: "Sanduicheira", image: "", store: "", color: "Preta", material: "Antiaderente", note: "", total: 1, reserved: [] },
-  { id: 6, name: "Jogo de cama casal", image: "", store: "", color: "Branco", material: "Algodão", note: "", total: 5, reserved: [] },
-  { id: 7, name: "Toalha", image: "", store: "", color: "Cinza", material: "Algodão", note: "", total: 5, reserved: [] },
-  { id: 8, name: "Jogo de banheiro", image: "", store: "", color: "Bege", material: "Algodão", note: "", total: 5, reserved: [] },
-  { id: 9, name: "Processador", image: "", store: "", color: "Preto", material: "Plástico", note: "", total: 1, reserved: [] },
-  { id: 10, name: "Batedeira", image: "", store: "", color: "Branca", material: "Plástico", note: "", total: 1, reserved: [] },
-  { id: 11, name: "Jogo de pratos", image: "", store: "", color: "Branco", material: "Porcelana", note: "", total: 3, reserved: [] },
-  { id: 12, name: "Taça gin", image: "", store: "", color: "Transparente", material: "Vidro", note: "", total: 1, reserved: [] },
-  { id: 13, name: "Varal de chão", image: "", store: "", color: "Prata", material: "Alumínio", note: "", total: 1, reserved: [] },
-  { id: 14, name: "Pano de chão", image: "", store: "", color: "Branco", material: "Algodão", note: "", total: 10, reserved: [] },
-  { id: 15, name: "Prensa francesa", image: "", store: "", color: "Preta", material: "Vidro", note: "", total: 1, reserved: [] },
-  { id: 16, name: "Faqueiro", image: "", store: "", color: "Prata", material: "Inox", note: "", total: 1, reserved: [] },
-  { id: 17, name: "Panela de pressão", image: "", store: "", color: "Prata", material: "Alumínio", note: "", total: 1, reserved: [] },
-  { id: 18, name: "Saca rolhas", image: "", store: "", color: "Preto", material: "Metal", note: "", total: 1, reserved: [] },
-  { id: 19, name: "Varão de cortina", image: "", store: "", color: "Prata", material: "Aço", note: "", total: 2, reserved: [] },
-  { id: 20, name: "Tapete (casa)", image: "", store: "", color: "Bege", material: "Poliéster", note: "", total: 2, reserved: [] },
-  { id: 21, name: "Mop com spray", image: "", store: "", color: "Cinza", material: "Plástico", note: "", total: 1, reserved: [] },
-  { id: 22, name: "Cesto de roupa", image: "", store: "", color: "Branco", material: "Plástico", note: "", total: 1, reserved: [] },
-  { id: 23, name: "Organizador multiuso", image: "", store: "", color: "Transparente", material: "Plástico", note: "", total: 1, reserved: [] },
-  { id: 24, name: "Rede", image: "", store: "", color: "Bege", material: "Algodão", note: "", total: 1, reserved: [] },
-  { id: 25, name: "Kit pote hermético", image: "", store: "", color: "Transparente", material: "Plástico", note: "", total: 1, reserved: [] },
-  { id: 26, name: "Porta frios", image: "", store: "", color: "Transparente", material: "Plástico", note: "", total: 3, reserved: [] },
-  { id: 27, name: "Escova de limpeza", image: "", store: "", color: "Branca", material: "Plástico", note: "", total: 3, reserved: [] },
-  { id: 28, name: "Galheteiro", image: "", store: "", color: "Transparente", material: "Vidro", note: "", total: 1, reserved: [] },
-  { id: 29, name: "Porta guardanapo", image: "", store: "", color: "Natural", material: "Bambu", note: "", total: 2, reserved: [] },
-  { id: 30, name: "Organizador de armário", image: "", store: "", color: "Branco", material: "Plástico", note: "", total: 5, reserved: [] },
-  { id: 31, name: "Forma cupcake silicone", image: "", store: "", color: "Colorido", material: "Silicone", note: "", total: 2, reserved: [] },
-  { id: 32, name: "Kit de banheiro", image: "", store: "", color: "Branco", material: "Cerâmica", note: "", total: 2, reserved: [] },
-  { id: 33, name: "Jogo de Panelas", image: "/images/jogo_panela_tramontina.jpeg", store: "", color: "Preto", material: "Antiaderente", note: "", total: 1, reserved: [] },
+  { id: 1, name: "Porta condimentos", image: "/images/porta_condimentos.jpeg", store: "", color: "Natural", material: "Bambu", note: "", price: 89.9, total: 1, reserved: [] },
+  { id: 2, name: "Pano de prato", image: "", store: "", color: "Branco", material: "Algodão", note: "", price: 12.9, total: 5, reserved: [] },
+  { id: 3, name: "Cortina", image: "", store: "", color: "Bege", material: "Linho", note: "", price: 79.9, total: 2, reserved: [] },
+  { id: 4, name: "Cafeteira", image: "", store: "", color: "Preta", material: "Inox", note: "", price: 149.9, total: 1, reserved: [] },
+  { id: 5, name: "Sanduicheira", image: "", store: "", color: "Preta", material: "Antiaderente", note: "", price: 119.9, total: 1, reserved: [] },
+  { id: 6, name: "Jogo de cama casal", image: "", store: "", color: "Branco", material: "Algodão", note: "", price: 159.9, total: 5, reserved: [] },
+  { id: 7, name: "Toalha", image: "", store: "", color: "Cinza", material: "Algodão", note: "", price: 39.9, total: 5, reserved: [] },
+  { id: 8, name: "Jogo de banheiro", image: "", store: "", color: "Bege", material: "Algodão", note: "", price: 59.9, total: 5, reserved: [] },
+  { id: 9, name: "Processador", image: "", store: "", color: "Preto", material: "Plástico", note: "", price: 199.9, total: 1, reserved: [] },
+  { id: 10, name: "Batedeira", image: "", store: "", color: "Branca", material: "Plástico", note: "", price: 179.9, total: 1, reserved: [] },
+  { id: 11, name: "Jogo de pratos", image: "", store: "", color: "Branco", material: "Porcelana", note: "", price: 129.9, total: 3, reserved: [] },
+  { id: 12, name: "Taça gin", image: "", store: "", color: "Transparente", material: "Vidro", note: "", price: 29.9, total: 1, reserved: [] },
+  { id: 13, name: "Varal de chão", image: "", store: "", color: "Prata", material: "Alumínio", note: "", price: 139.9, total: 1, reserved: [] },
+  { id: 14, name: "Pano de chão", image: "", store: "", color: "Branco", material: "Algodão", note: "", price: 9.9, total: 10, reserved: [] },
+  { id: 15, name: "Prensa francesa", image: "", store: "", color: "Preta", material: "Vidro", note: "", price: 69.9, total: 1, reserved: [] },
+  { id: 16, name: "Faqueiro", image: "", store: "", color: "Prata", material: "Inox", note: "", price: 149.9, total: 1, reserved: [] },
+  { id: 17, name: "Panela de pressão", image: "", store: "", color: "Prata", material: "Alumínio", note: "", price: 129.9, total: 1, reserved: [] },
+  { id: 18, name: "Saca rolhas", image: "", store: "", color: "Preto", material: "Metal", note: "", price: 24.9, total: 1, reserved: [] },
+  { id: 19, name: "Varão de cortina", image: "", store: "", color: "Prata", material: "Aço", note: "", price: 59.9, total: 2, reserved: [] },
+  { id: 20, name: "Tapete (casa)", image: "", store: "", color: "Bege", material: "Poliéster", note: "", price: 99.9, total: 2, reserved: [] },
+  { id: 21, name: "Mop com spray", image: "", store: "", color: "Cinza", material: "Plástico", note: "", price: 89.9, total: 1, reserved: [] },
+  { id: 22, name: "Cesto de roupa", image: "", store: "", color: "Branco", material: "Plástico", note: "", price: 69.9, total: 1, reserved: [] },
+  { id: 23, name: "Organizador multiuso", image: "", store: "", color: "Transparente", material: "Plástico", note: "", price: 49.9, total: 1, reserved: [] },
+  { id: 24, name: "Rede", image: "", store: "", color: "Bege", material: "Algodão", note: "", price: 119.9, total: 1, reserved: [] },
+  { id: 25, name: "Kit pote hermético", image: "", store: "", color: "Transparente", material: "Plástico", note: "", price: 79.9, total: 1, reserved: [] },
+  { id: 26, name: "Porta frios", image: "", store: "", color: "Transparente", material: "Plástico", note: "", price: 39.9, total: 3, reserved: [] },
+  { id: 27, name: "Escova de limpeza", image: "", store: "", color: "Branca", material: "Plástico", note: "", price: 19.9, total: 3, reserved: [] },
+  { id: 28, name: "Galheteiro", image: "", store: "", color: "Transparente", material: "Vidro", note: "", price: 49.9, total: 1, reserved: [] },
+  { id: 29, name: "Porta guardanapo", image: "", store: "", color: "Natural", material: "Bambu", note: "", price: 34.9, total: 2, reserved: [] },
+  { id: 30, name: "Organizador de armário", image: "", store: "", color: "Branco", material: "Plástico", note: "", price: 59.9, total: 5, reserved: [] },
+  { id: 31, name: "Forma cupcake silicone", image: "", store: "", color: "Colorido", material: "Silicone", note: "", price: 29.9, total: 2, reserved: [] },
+  { id: 32, name: "Kit de banheiro", image: "", store: "", color: "Branco", material: "Cerâmica", note: "", price: 89.9, total: 2, reserved: [] },
+  { id: 33, name: "Jogo de Panelas", image: "/images/jogo_panela_tramontina.jpeg", store: "", color: "Preto", material: "Antiaderente", note: "", price: 299.9, total: 1, reserved: [] },
 ];
-
 export default function Lista() {
   const [items, setItems] = useState<GiftItem[]>(initialItems);
   const [selectedItem, setSelectedItem] = useState<GiftItem | null>(null);
-
+  const { showToast } = useToast(); // ✅ AGORA NO LUGAR CERTO
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -116,56 +117,87 @@ const handleViewStores = (item: GiftItem) => {
     });
   };
 
-  const handleReserve = async () => {
-    if (!form.name || !form.phone) {
-      alert("Preencha todos os campos");
+ const handleReserve = async (isPix = false) => {
+  // 🔒 validação básica
+  if (!form.name.trim() || !form.phone.trim()) {
+    showToast("Preencha todos os campos 😢", "error");
+    return;
+  }
+
+  // 🔒 valida item selecionado
+  if (!selectedItem) {
+    showToast("Selecione um presente primeiro 🎁", "error");
+    return;
+  }
+
+  // 🔒 valida telefone (já mascarado)
+  if (form.phone.replace(/\D/g, "").length < 10) {
+    showToast("Telefone inválido 😢", "error");
+    return;
+  }
+
+  try {
+    setLoading(true);
+
+      // 🔥 AQUI ENTRA A VALIDAÇÃO DE DUPLICIDADE
+    const snapshot = await getDocs(collection(db, "reservas"));
+
+    const alreadyReserved = snapshot.docs.some((doc) => {
+      const data = doc.data();
+      return (
+        data.item === selectedItem.name &&
+        data.phone === form.phone
+      );
+    });
+
+    if (alreadyReserved) {
+      showToast("Você já reservou este item 😅", "error");
       return;
     }
 
-    if (!selectedItem) return;
+ await addDoc(collection(db, "reservas"), {
+  item: selectedItem.name,
+  name: form.name.trim(),
+  phone: form.phone,
+  status: "pendente",
 
-    if (form.phone.length < 10) {
-      alert("Telefone inválido");
-      return;
-    }
+  type: isPix ? "pix" : "presente", // 🔥 NOVO
+  price: selectedItem.price || 0,   // 🔥 NOVO (se tiver)
 
-    try {
-      setLoading(true);
+  createdAt: new Date(),
+});
 
-      await addDoc(collection(db, "reservas"), {
-        item: selectedItem.name,
-        name: form.name,
-        phone: form.phone,
-        createdAt: new Date(),
-      });
+    await fetchReservas();
 
-      await fetchReservas();
+    // 🧹 reset
+    setForm({ name: "", phone: "" });
+    setSelectedItem(null);
 
-      setForm({ name: "", phone: "" });
-      setSelectedItem(null);
+    // 🎉 efeitos
+    confetti({ particleCount: 80, spread: 70, zIndex: 9999 });
 
-      // 🎉 efeitos
-      confetti({ particleCount: 80, spread: 70, zIndex: 9999 });
+    setTimeout(() => {
+      confetti({ particleCount: 50, spread: 100, zIndex: 9999 });
+    }, 700);
 
-      setTimeout(() => {
-        confetti({ particleCount: 50, spread: 100, zIndex: 9999 });
-      }, 700);
+    playSound();
 
-      playSound();
+    setShowThankYou(true);
 
-      setShowThankYou(true);
+    setTimeout(() => {
+      setShowThankYou(false);
+    }, 3000);
 
-      setTimeout(() => {
-        setShowThankYou(false);
-      }, 3000);
+    // ✅ feedback final
+    showToast("Presente reservado com sucesso 🎉", "success");
 
-    } catch (error) {
-      console.error("ERRO:", error);
-      alert("Erro ao salvar 😢");
-    } finally {
-      setLoading(false);
-    }
-  };
+  } catch (error) {
+    console.error("ERRO:", error);
+    showToast("Erro ao enviar presente 😢", "error");
+  } finally {
+    setLoading(false);
+  }
+};
 
  useEffect(() => {
   let mounted = true;

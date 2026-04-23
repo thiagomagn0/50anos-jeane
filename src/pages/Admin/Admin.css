@@ -1,3 +1,9 @@
+/* ===== BASE ===== */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+}
+
+/* ===== LAYOUT ===== */
 .admin {
   min-height: 100vh;
 
@@ -8,57 +14,60 @@
 
   display: flex;
   justify-content: center;
-
-  padding: 16px; /* 🔥 leve e responsivo */
+  padding: 20px;
 }
+
 @media (min-width: 768px) {
   .admin {
     padding: 32px;
   }
 }
+
 .admin__container {
   width: 100%;
-  max-width: 500px;
-
+  max-width: 520px;
   padding: 20px;
-
   box-sizing: border-box;
 }
-/* título */
+
+/* ===== TÍTULO ===== */
 .admin__title {
   font-family: 'Playfair Display', serif;
-  font-size: 28px;
+  font-size: 30px;
   text-align: center;
   color: #5c4b44;
-  margin-bottom: 25px;
-  margin-top: 40px;
+  margin: 30px 0;
 }
 
-/* 📊 stats */
+/* ===== STATS ===== */
 .admin__stats {
   display: grid;
-  gap: 10px;
-  justify-content: space-between;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
   margin-bottom: 25px;
-  
-  grid-template-columns: repeat(2, 1fr); /* 👈 melhor layout */
-  gap: 10px;
 }
 
 .admin__stat {
-  flex: 1;
-  background: rgba(255,255,255,0.8);
-  backdrop-filter: blur(6px);
-  padding: 15px;
-  border-radius: 16px;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(10px);
+
+  border-radius: 18px;
+  padding: 16px;
   text-align: center;
+
   border: 1px solid #eaded6;
-  
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+
+  transition: 0.2s;
+}
+
+.admin__stat:hover {
+  transform: translateY(-2px);
 }
 
 .admin__stat-number {
-  font-size: 22px;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 600;
   color: #5c4b44;
 }
 
@@ -67,34 +76,220 @@
   color: #8a7a73;
 }
 
-/* 📦 lista */
-.admin__list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-/* card */
-.admin__card {
-  background: linear-gradient(180deg, #fdf7f2, #f7efe8);
-
-  padding: 16px;
-  border-radius: 16px;
-
-  border: 1px solid #eaded6;
-
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-}
-
-.admin__item {
-  font-weight: 600;
-  margin-bottom: 5px;
-}
-
+/* ===== SEÇÕES ===== */
 .admin__section-title {
   font-family: 'Playfair Display', serif;
   font-size: 20px;
   color: #5c4b44;
-
   margin: 25px 0 10px;
+}
+
+/* ===== LISTA ===== */
+.admin__list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ===== CARD ===== */
+.admin__card {
+  background: #ffffff;
+
+  border-radius: 20px;
+  padding: 18px;
+
+  border: 1px solid #eaded6;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+
+  transition: all 0.25s ease;
+  animation: fadeUp 0.4s ease;
+}
+
+.admin__card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+}
+
+.admin__card:active {
+  transform: scale(0.98);
+}
+
+/* animação */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== HEADER ===== */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  color: #4a3d36;
+}
+
+/* ===== INFO ===== */
+.card-body {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #4a3d36;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-body div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ===== PAYMENT ===== */
+.card-payment {
+  margin-top: 10px;
+  font-size: 13px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-weight: 500;
+}
+
+.payment-type.pix {
+  color: #2e7d32;
+}
+
+.payment-type.presente {
+  color: #6d4c41;
+}
+
+.card-price {
+  margin-top: 6px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #3d2f29;
+}
+
+/* ===== STATUS ===== */
+.status {
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.status.pendente {
+  background: #fff4e5;
+  color: #8a5a00;
+}
+
+.status.pago {
+  background: #e6f4ea;
+  color: #1b5e20;
+}
+.status.sim {
+  background: #e6f4ea;
+  color: #1b5e20;
+}
+
+.status.nao {
+  background: #fdecea;
+  color: #b71c1c;
+}
+
+/* ===== BOTÕES ===== */
+.card-actions {
+  margin-top: 14px;
+  display: flex;
+  gap: 8px;
+}
+
+.card-actions button {
+  flex: 1;
+  border-radius: 12px;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* principal */
+.card-actions button:first-child {
+  background: #5c4b44;
+  color: white;
+  box-shadow: 0 4px 10px rgba(92,75,68,0.2);
+}
+
+/* secundário */
+.card-actions button:last-child {
+  background: #f2f2f2;
+  color: #555;
+}
+
+.card-actions button:hover {
+  opacity: 0.9;
+}
+
+.card-actions button:active {
+  transform: scale(0.96);
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #4a3d36;
+}
+.info-row.between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.phone-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #4a3d36;
+  font-size: 14px;
+}
+
+/* botão whatsapp */
+.whatsapp-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+  background: #25d366;
+  color: white;
+
+  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+
+  transition: 0.2s;
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-button:active {
+  transform: scale(0.95);
 }
