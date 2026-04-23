@@ -1,8 +1,7 @@
-
 .lista {
   min-height: 100vh;
 
-  background-image: url("/images/imagem_fundo.png");
+  background-image: url("/images/fundo_50anos.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -10,55 +9,97 @@
   display: flex;
   justify-content: center;
 
-  padding: 16px; /* 🔥 leve e responsivo */
+  padding: 16px;
+
+  position: relative;
 }
+
+/* overlay elegante */
+.lista::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    rgba(247, 249, 251, 0.75),
+    rgba(247, 249, 251, 0.95)
+  );
+}
+
 @media (min-width: 768px) {
   .lista {
     padding: 32px;
   }
 }
+
 .lista__container {
   width: 100%;
   max-width: 500px;
 
   padding: 20px;
-
   box-sizing: border-box;
-}
 
-
-
-h1 {
-  margin:0;
-}
-.lista__header {
   position: relative;
+  z-index: 1;
+}
+
+/* reset seguro */
+h1 {
+  margin: 0;
+}
+
+/* header */
+.lista__header {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  z-index: 1;
-  gap: 16px;
-  margin-top: 56px;
-}
-.lista__title {
-  font-family: 'Playfair Display', serif;
-  text-align: center;  
-  color: #5c4b44;
-  line-height: 1;
-}
-.lista__subtitle {
-  font-family: 'Playfair Display', serif;
-  text-align: center;  
-  color: #5c4b44;
-  line-height: 1;
+  gap: 10px;
+
+  margin-top: 40px;
 }
 
+/* título */
+.lista__title {
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+
+  color: var(--primary);
+  line-height: 1.2;
+  font-size: 28px;
+}
+
+/* 🔴 detalhe vermelho elegante */
+.lista__title::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+
+  background: var(--accent);
+  margin: 8px auto 0;
+
+  border-radius: 2px;
+}
+
+/* subtítulo */
+.lista__subtitle {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+/* grid */
 .lista__grid {
   display: flex;
   flex-direction: column;
   gap: 16px;
   margin-top: 24px;
-  position: relative; /* 🔥 REMOVE absolute */
 }
 
+/* 🔥 EXTRA: destaque suave quando item aparece */
+.lista__grid > * {
+  transition: transform 0.2s ease;
+}
 
+.lista__grid > *:hover {
+  transform: translateY(-3px);
+}

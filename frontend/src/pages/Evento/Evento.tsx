@@ -21,26 +21,27 @@ export default function Evento() {
 
         <h1 className="evento__title">Local do Evento</h1>
 
-        <p className="evento__subtitle">
-          Esperamos por você.
-        </p>
+       <p className="evento__subtitle">
+        Confira o endereço e como chegar ao evento
+      </p>
 
         <div className="evento__card">
-          <p className="evento__address">
-            Av. Boa Esperança <br /> São Gonçalo Nº 99 <br />
-            Salvador - BA <br />
-            CEP: 41185-010
-          </p>
+        <p className="evento__address">
+          Rua Parambu, Res. Monte Carlo <br />
+          Santa Tereza Nº 131 <br />
+          Salvador - BA <br />
+          CEP: 40261-015
+        </p>
 
           <iframe
             className="evento__map"
-            src="https://www.google.com/maps?q=Av.+Boa+Esperança,+São+Gonçalo,+Salvador+BA&output=embed"
+            src="https://www.google.com/maps?q=Residencial+Monte+Carlo,+R.+Parambu,+131+-+Santa+Teresa,+Salvador+-+BA,+40261-015&output=embed"
             loading="lazy"
           />
        <div className="evento__actions">
 
   <a
-    href="https://www.google.com/maps?q=Av.+Boa+Esperança,+São+Gonçalo,+Salvador+BA"
+    href="https://www.google.com/maps?q=Residencial+Monte+Carlo,+R.+Parambu,+131+-+Santa+Teresa,+Salvador+-+BA,+40261-015"
     target="_blank"
     className="evento__button"
   >

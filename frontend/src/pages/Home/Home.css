@@ -1,7 +1,7 @@
 .home {
-  min-height: 100vh; /* 🔥 troca height por min-height */
+  min-height: 100vh;
 
-  background-image: url("/images/foto-casal.jpg");
+  background-image: url("/images/jeane.jpeg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -9,77 +9,130 @@
   position: relative;
 }
 
-/* 🔥 overlay sofisticado */
+/* 🔥 overlay mais sofisticado com sua paleta */
 .home__overlay {
-  min-height: 100vh; /* 🔥 importante */
+  min-height: 100vh;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-
   justify-content: flex-start;
 
-  padding: 18px 20px 80px; /* 🔥 espaço pro botão */
+  padding: 18px 20px 80px;
 
   background: linear-gradient(
-    rgba(253, 250, 247, 0.6) 0%,
-    rgba(253, 250, 247, 0.85) 40%,
-    rgba(253, 250, 247, 0.95) 100%
+    rgba(247, 249, 251, 0.6) 0%,
+    rgba(247, 249, 251, 0.85) 40%,
+    rgba(247, 249, 251, 0.96) 100%
   );
 }
-@keyframes floatSoft {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-3px);
-  }
-}
 
-/* ✨ título elegante */
+/* ✨ título elegante com azul + dourado */
 .home__title {
   font-family: 'Playfair Display', serif;
   font-size: 42px;
-  color: #5c4b44;
+  color: var(--gold);
+
   animation: fadeUpSoft 1s ease, floatSoft 4s ease-in-out infinite;
+    display: flex;
+    gap: 24px;
   text-align: center;
   line-height: 1.2;
 
   margin-bottom: 10px;
 }
 
-@keyframes fadeUpSoft {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.home__title span {
-   display: block;
-  opacity: 0;
-
-  animation: fadeUpSoft 0.8s ease forwards;
-}
-/* delay elegante */
-.home__title span:nth-child(1) {
-  animation-delay: 0.2s;
-}
-
+/* destaque dourado no segundo nome */
 .home__title span:nth-child(2) {
-  animation-delay: 0.5s;
+  color: var(--primary);
 }
 
-.home__subtitle {
+/* cards */
+.home__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: calc(100% - 20px);
+  margin-top: 150px;
+  padding: 24px;
+}
+
+/* 💎 card premium real */
+.home__card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+
+  padding: 18px 22px;
+  border-radius: 18px;
+
+  border: 1px solid var(--border-soft);
+
+  text-align: center;
+
+  cursor: pointer;
+  transition: 0.3s;
+
+  opacity: 0;
+  animation: fadeUpCard 0.6s ease forwards;
+
+  box-shadow: var(--shadow-soft);
+}
+
+/* hover elegante (agora com identidade) */
+.home__card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+}
+
+/* título do card */
+.home__card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  color: var(--primary);
+}
+
+/* subtítulo */
+.home__card-subtitle {
+  font-size: 13px;
   color: var(--text-light);
-  margin-bottom: 40px;
-
-  animation: fadeUp 1.2s ease;
+  margin-top: 4px;
 }
+
+/* botão whatsapp agora com identidade */
+.home__whatsapp {
+  position: sticky;
+  bottom: 20px;
+
+  margin-top: 40px;
+
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--primary-hover)
+  );
+
+  color: var(--white);
+
+  padding: 12px 28px;
+  border-radius: 25px;
+
+  text-decoration: none;
+
+  box-shadow: var(--shadow-soft);
+  transition: 0.3s;
+}
+
+/* hover mais premium */
+.home__whatsapp:hover {
+  transform: scale(1.05);
+  background: linear-gradient(
+    135deg,
+    var(--primary-hover),
+    var(--primary)
+  );
+}
+
+
 
 @keyframes fadeUpCard {
   from {
@@ -91,78 +144,21 @@
     transform: translateY(0) scale(1);
   }
 }
-
-/* 💎 cards premium */
-.home__cards {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: calc(100% - 20px);
-  margin-top: 40px; /* 🔥 ajustado */
-  padding: 24px;
-}
-
-/* 💍 card elegante */
-.home__card {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  
-  padding: 18px 22px;
-  border-radius: 18px;
-
-  border: 1px solid #eaded6;
-
-  
-  text-align: center;
-
-  cursor: pointer;
-  transition: 0.3s;
+@keyframes fadeUpSoft {
+  from {
     opacity: 0;
-  animation: fadeUpCard 0.6s ease forwards;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
-/* efeito cascata */
-.home__card:nth-child(1) {
-  animation-delay: 0.8s;
-}
-
-.home__card:nth-child(2) {
-  animation-delay: 1s;
-}
-
-/* hover leve */
-.home__card:focus {
-  transform: scale(1.05) !important;
-}
-
-/* título do card */
-.home__card-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 16px;
-  color: #5c4b44;
-}
-
-/* subtítulo */
-.home__card-subtitle {
-  font-size: 13px;
-  color: #8a7a73;
-  margin-top: 4px;
-}
-
-.home__whatsapp {
-  position: sticky;
-  bottom: 20px;
-
-  margin-top: 40px;
-
-  background: #d8a48f;
-  color: white;
-
-  padding: 12px 28px;
-  border-radius: 25px;
-}
-
-.home__whatsapp:hover {
-  transform: scale(1.05);
-  background: #c8937e;
+@keyframes floatSoft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
 }

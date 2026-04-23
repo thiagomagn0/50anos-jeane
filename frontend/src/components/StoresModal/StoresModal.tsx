@@ -154,7 +154,7 @@ const handleClose = () => {
         </div>
    
 
-        <button className="sheet-close" onClick={handleClose}>
+        <button className="sheet-close-3" onClick={handleClose}>
   Fechar
 </button>
       </div>

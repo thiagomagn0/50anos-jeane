@@ -1,17 +1,29 @@
 :root {
-  --primary: #d8a48f;
-  --secondary: #f3d5c0;
-  --accent: #e7b5a3;
+  /* 🎨 CORES PRINCIPAIS */
+  --primary: #0d3b66;        /* azul profundo elegante */
+  --primary-hover: #0a2f52;
 
-  --text-dark: #5c4b44;
-  --text-light: #8a7a73;
+  --secondary: #ffffff;      /* branco clean */
+  --background: #f7f9fb;     /* fundo suave */
 
-  --background: #fdfaf7;
+  /* 🔴 DESTAQUE */
+  --accent: #d62828;         /* vermelho Bahia */
+  --accent-soft: #fbe4e4;
+
+  /* ✨ PREMIUM */
+  --gold: #c9a227;           /* dourado elegante */
+  --gold-soft: #f4ecd3;
+
+  /* 📝 TEXTOS */
+  --text-dark: #1f2933;
+  --text-light: #6b7280;
+
+  /* 🧱 UI */
   --white: #ffffff;
-  --bg-soft: #f3e6dc;
---input-bg: #e7dfd9;
---border-soft: #d6c6bb;
---text-main: #5c4b44;
---primary: #c88f76;
---primary-hover: #b97d63;
+  --bg-soft: #eef2f6;
+  --input-bg: #f1f5f9;
+  --border-soft: #e2e8f0;
+
+  /* EXTRA */
+  --shadow-soft: 0 8px 20px rgba(0,0,0,0.06);
 }

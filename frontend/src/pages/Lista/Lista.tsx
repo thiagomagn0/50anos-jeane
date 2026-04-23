@@ -13,39 +13,126 @@ import { useToast } from "../../hooks/useToast";
 
 
 const initialItems: GiftItem[] = [
-  { id: 1, name: "Porta condimentos", image: "/images/porta_condimentos.jpeg", store: "", color: "Natural", material: "Bambu", note: "", price: 89.9, total: 1, reserved: [] },
-  { id: 2, name: "Pano de prato", image: "", store: "", color: "Branco", material: "Algodão", note: "", price: 12.9, total: 5, reserved: [] },
-  { id: 3, name: "Cortina", image: "", store: "", color: "Bege", material: "Linho", note: "", price: 79.9, total: 2, reserved: [] },
-  { id: 4, name: "Cafeteira", image: "", store: "", color: "Preta", material: "Inox", note: "", price: 149.9, total: 1, reserved: [] },
-  { id: 5, name: "Sanduicheira", image: "", store: "", color: "Preta", material: "Antiaderente", note: "", price: 119.9, total: 1, reserved: [] },
-  { id: 6, name: "Jogo de cama casal", image: "", store: "", color: "Branco", material: "Algodão", note: "", price: 159.9, total: 5, reserved: [] },
-  { id: 7, name: "Toalha", image: "", store: "", color: "Cinza", material: "Algodão", note: "", price: 39.9, total: 5, reserved: [] },
-  { id: 8, name: "Jogo de banheiro", image: "", store: "", color: "Bege", material: "Algodão", note: "", price: 59.9, total: 5, reserved: [] },
-  { id: 9, name: "Processador", image: "", store: "", color: "Preto", material: "Plástico", note: "", price: 199.9, total: 1, reserved: [] },
-  { id: 10, name: "Batedeira", image: "", store: "", color: "Branca", material: "Plástico", note: "", price: 179.9, total: 1, reserved: [] },
-  { id: 11, name: "Jogo de pratos", image: "", store: "", color: "Branco", material: "Porcelana", note: "", price: 129.9, total: 3, reserved: [] },
-  { id: 12, name: "Taça gin", image: "", store: "", color: "Transparente", material: "Vidro", note: "", price: 29.9, total: 1, reserved: [] },
-  { id: 13, name: "Varal de chão", image: "", store: "", color: "Prata", material: "Alumínio", note: "", price: 139.9, total: 1, reserved: [] },
-  { id: 14, name: "Pano de chão", image: "", store: "", color: "Branco", material: "Algodão", note: "", price: 9.9, total: 10, reserved: [] },
-  { id: 15, name: "Prensa francesa", image: "", store: "", color: "Preta", material: "Vidro", note: "", price: 69.9, total: 1, reserved: [] },
-  { id: 16, name: "Faqueiro", image: "", store: "", color: "Prata", material: "Inox", note: "", price: 149.9, total: 1, reserved: [] },
-  { id: 17, name: "Panela de pressão", image: "", store: "", color: "Prata", material: "Alumínio", note: "", price: 129.9, total: 1, reserved: [] },
-  { id: 18, name: "Saca rolhas", image: "", store: "", color: "Preto", material: "Metal", note: "", price: 24.9, total: 1, reserved: [] },
-  { id: 19, name: "Varão de cortina", image: "", store: "", color: "Prata", material: "Aço", note: "", price: 59.9, total: 2, reserved: [] },
-  { id: 20, name: "Tapete (casa)", image: "", store: "", color: "Bege", material: "Poliéster", note: "", price: 99.9, total: 2, reserved: [] },
-  { id: 21, name: "Mop com spray", image: "", store: "", color: "Cinza", material: "Plástico", note: "", price: 89.9, total: 1, reserved: [] },
-  { id: 22, name: "Cesto de roupa", image: "", store: "", color: "Branco", material: "Plástico", note: "", price: 69.9, total: 1, reserved: [] },
-  { id: 23, name: "Organizador multiuso", image: "", store: "", color: "Transparente", material: "Plástico", note: "", price: 49.9, total: 1, reserved: [] },
-  { id: 24, name: "Rede", image: "", store: "", color: "Bege", material: "Algodão", note: "", price: 119.9, total: 1, reserved: [] },
-  { id: 25, name: "Kit pote hermético", image: "", store: "", color: "Transparente", material: "Plástico", note: "", price: 79.9, total: 1, reserved: [] },
-  { id: 26, name: "Porta frios", image: "", store: "", color: "Transparente", material: "Plástico", note: "", price: 39.9, total: 3, reserved: [] },
-  { id: 27, name: "Escova de limpeza", image: "", store: "", color: "Branca", material: "Plástico", note: "", price: 19.9, total: 3, reserved: [] },
-  { id: 28, name: "Galheteiro", image: "", store: "", color: "Transparente", material: "Vidro", note: "", price: 49.9, total: 1, reserved: [] },
-  { id: 29, name: "Porta guardanapo", image: "", store: "", color: "Natural", material: "Bambu", note: "", price: 34.9, total: 2, reserved: [] },
-  { id: 30, name: "Organizador de armário", image: "", store: "", color: "Branco", material: "Plástico", note: "", price: 59.9, total: 5, reserved: [] },
-  { id: 31, name: "Forma cupcake silicone", image: "", store: "", color: "Colorido", material: "Silicone", note: "", price: 29.9, total: 2, reserved: [] },
-  { id: 32, name: "Kit de banheiro", image: "", store: "", color: "Branco", material: "Cerâmica", note: "", price: 89.9, total: 2, reserved: [] },
-  { id: 33, name: "Jogo de Panelas", image: "/images/jogo_panela_tramontina.jpeg", store: "", color: "Preto", material: "Antiaderente", note: "", price: 299.9, total: 1, reserved: [] },
+  {
+    id: 1,
+    name: "Camisa Bahia (tricolor)",
+    image: "https://images.puma.com/image/upload/f_auto,q_auto,w_600,b_rgb:FAFAFA/global/787234/01/fnd/BRA/fmt/png",
+    store: "",
+    color: "Tricolor",
+    material: "Poliéster",
+    note: "Referência do clube",
+    price: 249.9,
+    total: 2,
+    reserved: []
+  },
+  {
+    id: 2,
+    name: "Boné Bahia",
+    image: "https://http2.mlstatic.com/D_NQ_NP_2X_857872-MLA105698900627_012026-F.webp",
+    store: "",
+    color: "Azul",
+    material: "Algodão",
+    note: "Tema Bahia",
+    price: 69.9,
+    total: 3,
+    reserved: []
+  },
+  {
+    id: 3,
+    name: "Caneca Bahia",
+    image: "https://http2.mlstatic.com/D_NQ_NP_2X_885640-MLU78159524503_082024-F.webp",
+    store: "",
+    color: "Branco/Azul",
+    material: "Cerâmica",
+    note: "Personalizada Bahia",
+    price: 39.9,
+    total: 4,
+    reserved: []
+  },
+  {
+    id: 4,
+    name: "Bandeira Bahia",
+    image: "https://http2.mlstatic.com/D_NQ_NP_2X_881963-MLB82397336128_022025-F.webp",
+    store: "",
+    color: "Tricolor",
+    material: "Poliéster",
+    note: "",
+    price: 59.9,
+    total: 2,
+    reserved: []
+  },
+  {
+    id: 5,
+    name: "Chinelo Bahia",
+    image: "https://cdn-icons-png.flaticon.com/512/1046/1046867.png",
+    store: "",
+    color: "Azul",
+    material: "Borracha",
+    note: "",
+    price: 49.9,
+    total: 3,
+    reserved: []
+  },
+  {
+    id: 6,
+    name: "Almofada Bahia",
+    image: "https://cdn-icons-png.flaticon.com/512/1046/1046857.png",
+    store: "",
+    color: "Tricolor",
+    material: "Tecido",
+    note: "",
+    price: 59.9,
+    total: 2,
+    reserved: []
+  },
+  {
+    id: 7,
+    name: "Chaveiro Bahia",
+    image: "https://cdn-icons-png.flaticon.com/512/1828/1828884.png",
+    store: "",
+    color: "Tricolor",
+    material: "Metal",
+    note: "",
+    price: 19.9,
+    total: 5,
+    reserved: []
+  },
+  {
+    id: 8,
+    name: "Garrafa Bahia",
+    image: "https://cdn-icons-png.flaticon.com/512/1046/1046790.png",
+    store: "",
+    color: "Azul",
+    material: "Inox",
+    note: "",
+    price: 89.9,
+    total: 2,
+    reserved: []
+  },
+  {
+    id: 9,
+    name: "Toalha Bahia",
+    image: "https://cdn-icons-png.flaticon.com/512/1046/1046862.png",
+    store: "",
+    color: "Tricolor",
+    material: "Algodão",
+    note: "",
+    price: 69.9,
+    total: 3,
+    reserved: []
+  },
+  {
+    id: 10,
+    name: "Quadro Bahia",
+    image: "https://cdn-icons-png.flaticon.com/512/1828/1828925.png",
+    store: "",
+    color: "Tricolor",
+    material: "MDF",
+    note: "",
+    price: 79.9,
+    total: 2,
+    reserved: []
+  }
 ];
 export default function Lista() {
   const [items, setItems] = useState<GiftItem[]>(initialItems);
@@ -184,9 +271,9 @@ const handleViewStores = (item: GiftItem) => {
 
     setShowThankYou(true);
 
-    setTimeout(() => {
-      setShowThankYou(false);
-    }, 3000);
+    // setTimeout(() => {
+    //   setShowThankYou(false);
+    // }, 3000);
 
     // ✅ feedback final
     showToast("Presente reservado com sucesso 🎉", "success");
@@ -237,11 +324,13 @@ const handleViewStores = (item: GiftItem) => {
 
   return (
     <div className="lista fade-page">
-      <div className="liata__container">
+      <div className="lista__container">
 
         <header className="lista__header">
           <h1 className="lista__title">Lista de Presentes</h1>
-          <p className="lista__subtitle">Escolha com carinho!</p>
+          <p className="lista__subtitle">
+          Sua presença é o maior presente, mas se quiser nos presentear 💛
+        </p>
         </header>
 
         <div className="lista__grid">

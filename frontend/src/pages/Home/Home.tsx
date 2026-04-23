@@ -8,10 +8,10 @@ export default function Home() {
   return (
     <div className="home">
       <div className="home__overlay">
-        <h1 className="home__title">
-          <span>Maressa &</span>
-          <span>Thiago</span>
-        </h1>
+       <h1 className="home__title">
+        <span>50 Anos</span>
+        <span>Jeane</span>
+      </h1>
 
        <div className="home__cards">
 

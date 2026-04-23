@@ -2,8 +2,8 @@
   position: fixed;
   inset: 0;
 
-      background: rgb(55 55 55 / 92%);
-  backdrop-filter: blur(4px);
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
 
   display: flex;
   align-items: center;
@@ -12,62 +12,97 @@
   z-index: 9999;
 }
 
-/* 💍 card */
+/* 💎 card premium */
 .thankyou__content {
-    width: 90%;
-    max-width: 350px;
-    height: 300px;
-    padding: 16px 16px;
-    border-radius: 16px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    background-image: url(/images/TY.jpg);
-    background-size: cover;
-    background-position: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 90%;
+  max-width: 360px;
+
+  padding: 24px 20px;
+
+  border-radius: 20px;
+
+  position: relative;
+  overflow: hidden;
+
+  background-image: url(/images/jeane_agrad.jpeg);
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255,255,255,0.3);
 }
 
-/* 🌫️ overlay */
+/* overlay elegante */
 .thankyou__content::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-        background: rgb(253 250 247 / 77%);
-    backdrop-filter: blur(2px);
-    padding: 16px;
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    rgba(247, 249, 251, 0.171),
+    rgba(247, 249, 251, 0.95)
+  );
+
+  backdrop-filter: blur(1px);
 }
+
 /* conteúdo por cima */
 .thankyou__text,
-.thankyou__button {
+.thankyou__button,
+.thankyou__icon {
   position: relative;
   z-index: 1;
+}
+
+/* 🎉 ícone destaque */
+.thankyou__icon {
+  font-size: 28px;
+  margin-bottom: 10px;
 }
 
 /* ✨ texto */
 .thankyou__text {
   font-family: 'Playfair Display', serif;
   font-size: 16px;
-  color: #5c4b44;
+  color: var(--primary);
+
   line-height: 1.6;
+  text-align: center;
+}
+
+/* destaque dourado em parte do texto */
+.thankyou__text strong {
+  color: var(--gold);
+  font-weight: 600;
 }
 
 /* botão */
 .thankyou__button {
-    margin-top: 24px;
-    padding: 10px 20px;
-    border-radius: 20px;
-    background: #d8a48f;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: 0.2s;
-    width: 200px;
+  margin-top: 24px;
+  padding: 12px 22px;
+
+  border-radius: 24px;
+
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--primary-hover)
+  );
+
+  color: white;
+  border: none;
+
+  cursor: pointer;
+  transition: 0.25s;
+
+  width: 200px;
 }
 
+/* hover */
 .thankyou__button:hover {
-  background: #c8937e;
+  transform: translateY(-2px);
 }

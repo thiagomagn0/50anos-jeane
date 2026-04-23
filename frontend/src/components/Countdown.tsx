@@ -1,6 +1,6 @@
 
 export default function Countdown() {
-  const targetDate = new Date("2026-05-23");
+  const targetDate = new Date("2026-07-11");
 
   const diff =
     targetDate.getTime() - new Date().getTime();

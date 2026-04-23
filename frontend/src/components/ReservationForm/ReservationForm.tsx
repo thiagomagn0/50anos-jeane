@@ -157,7 +157,9 @@ export function ReservationForm({
 
         {/* 💰 PIX */}
         <div className="pix">
-          <h3 className="pix__title">Prefere enviar um PIX? 💛</h3>
+          <h3 className="pix__title">
+            Ou contribua via PIX 💛
+          </h3>
 
           <p className="pix__key">Chave: 71999999999</p>
 
@@ -165,7 +167,7 @@ export function ReservationForm({
             value="71999999999"
             size={140}
             bgColor="#ffffff"
-            fgColor="#5c4b44"
+            fgColor="#0d3b66"
           />
 
           <button className="pix__button" onClick={copyPix} >
@@ -173,7 +175,7 @@ export function ReservationForm({
           </button>
         </div>
 
-        <button className="sheet-close" onClick={handleClose}>
+        <button className="sheet-close_2" onClick={handleClose}>
           Cancelar
         </button>
       </div>

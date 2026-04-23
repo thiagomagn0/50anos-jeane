@@ -48,9 +48,18 @@ export function GiftCard({ item, onSelect, onViewStores, style }: Props) {
         Comparar preços 🛒
       </button>
 
-      <p className="gift-card__progress">
+     <p className="gift-card__progress">
         {item.reserved.length}/{item.total} presenteado
       </p>
+
+      <div className="gift-card__progress-bar">
+        <div
+          className="gift-card__progress-fill"
+          style={{
+            width: `${(item.reserved.length / item.total) * 100}%`
+          }}
+        />
+      </div>
 
       <button
         className={`gift-card__button ${

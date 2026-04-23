@@ -58,7 +58,7 @@
   text-align: center;
   font-size: 18px;
   font-weight: 600;
-  color: #3a2f2a;
+  color: var(--primary);
 }
 
 /* 🔥 SUBTÍTULO */
@@ -81,7 +81,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   width: 100%;
   padding: 14px;
   border-radius: 16px;
@@ -160,36 +159,36 @@
 .sheet-name {
   font-weight: 600;
   white-space: nowrap;
-      color: #777777;
+      color: var(--primary);
 }
 
 .sheet-desc {
   font-size: 12px;
-  color: #8c807a;
+  color: var(--primary);
   white-space: nowrap;
 }
 
 /* 🔥 SETA */
 .sheet-arrow {
   font-size: 20px;
-  color: #b5aaa5;
+  color: var(--primary);
 }
 
 /* 🔥 BOTÃO FECHAR */
-.sheet-close {
+.sheet-close-3 {
   margin-top: 16px;
   width: 100%;
   padding: 12px;
   border-radius: 14px;
-  border: none;
-  background: #efe7e2;
-  color: #5c4b44;
+  border: 1px solid var(--border-soft);
+  background: transparent !important;
+  color: var(--primary);
   font-weight: 500;
   cursor: pointer;
   transition: 0.2s;
 }
 
-.sheet-close:hover {
+.sheet-close-3:hover {
   background: #e5d8cf;
 }
 
@@ -255,7 +254,7 @@
 .sheet-section {
   font-size: 12px;
   font-weight: 600;
-  color: #9a8f88;
+  color: var(--primary);
   margin: 16px 0 6px;
 }
 
@@ -280,15 +279,25 @@
 /* texto ação */
 .sheet-action {
   font-size: 12px;
-  color: #b5aaa5;
+  color: var(--primary);
   white-space: nowrap; /* 👈 ESSENCIAL */
 }
 
 /* destaque recomendado */
 .highlight {
-  background: #efe7e2;
+  background: var(--primary-hover);
 
   box-shadow:
     0 4px 12px rgba(0,0,0,0.08),
     0 0 0 1px rgba(0,0,0,0.03);
+}
+.highlight .sheet-left .sheet-name {
+  color: white;
+}
+.highlight .sheet-right .sheet-action {
+  color: white;
+}
+
+.highlight .sheet-right .sheet-arrow {
+  color: white;
 }
