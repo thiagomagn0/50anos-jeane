@@ -35,7 +35,7 @@ export default function Home() {
         <Countdown />
       <div className="home__whatsapp">
   <a
-          href="https://wa.me/5571999691099"
+          href="https://wa.me/5571982437020"
           target="_blank"
           className="home__whatsapp"
         >
