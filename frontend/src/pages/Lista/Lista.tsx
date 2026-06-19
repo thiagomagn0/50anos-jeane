@@ -21,7 +21,7 @@ export default function Lista() {
   <h1 className="lista__title">Sugestões de Presentes</h1>
   <p className="lista__subtitle">
     Sua presença é o maior presente 💛<br />
-    Mas, caso queira nos presentear, seguem algumas sugestões:
+    Mas, caso queira presentear, seguem algumas sugestões:
   </p>
 </header>
 
