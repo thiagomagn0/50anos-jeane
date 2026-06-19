@@ -162,3 +162,10 @@
     transform: translateY(-3px);
   }
 }
+
+.home__date {
+     font-size: 16px;
+    text-align: center;
+    letter-spacing: 1px;
+    font-weight: 300;
+}

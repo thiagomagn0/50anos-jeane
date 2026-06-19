@@ -12,6 +12,7 @@ export default function Home() {
         <span>50 Anos</span>
         <span>Jeane</span>
       </h1>
+  
 
        <div className="home__cards">
 
@@ -21,8 +22,8 @@ export default function Home() {
           </div>
 
           <div className="home__card" onClick={() => navigate("/lista")}>
-            <p className="home__card-title">Lista de Presentes</p>
-            <p className="home__card-subtitle">Escolha com carinho</p>
+            <p className="home__card-title">Sugestão de Presentes</p>
+            <p className="home__card-subtitle"></p>
           </div>
 
           <div className="home__card" onClick={() => navigate("/evento")}>
@@ -31,7 +32,9 @@ export default function Home() {
           </div>
 
         </div>
-
+            <p className="home__date">
+  11 de Julho • 15h
+</p>
         <Countdown />
       <div className="home__whatsapp">
   <a

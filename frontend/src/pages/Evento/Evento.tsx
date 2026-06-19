@@ -30,9 +30,26 @@ export default function Evento() {
           Rua Parambu, Res. Monte Carlo <br />
           Santa Tereza Nº 131 <br />
           Salvador - BA <br />
-          CEP: 40261-015
+          CEP: 40261-015 <br />
+          Horário: 15:00 PM
         </p>
+          <div className="evento__info">
+            <div className="evento__info-item">
+              <span className="evento__info-icon">👔</span>
+              <div className="infos__observacao">
+                <strong>Traje:</strong>
+                <p>Esporte Fino</p>
+              </div>
+            </div>
 
+            <div className="evento__info-item">
+              <span className="evento__info-icon">🎨</span>
+              <div className="infos__observacao">
+                <strong>Dress Code:</strong>
+                <p>Evite qualquer tom de azul</p>
+              </div>
+            </div>
+          </div>
           <iframe
             className="evento__map"
             src="https://www.google.com/maps?q=Residencial+Monte+Carlo,+R.+Parambu,+131+-+Santa+Teresa,+Salvador+-+BA,+40261-015&output=embed"
