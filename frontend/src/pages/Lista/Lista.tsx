@@ -8,7 +8,6 @@ const sugestoes = [
   "Saia, short ou calça tamanho 42",
   "Sapato número 34",
   "Perfume adocicado",
-  "Relógio dourado, prateado ou digital",
 ];
 
 export default function Lista() {

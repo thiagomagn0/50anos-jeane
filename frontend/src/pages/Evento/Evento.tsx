@@ -31,7 +31,7 @@ export default function Evento() {
           Santa Tereza Nº 131 <br />
           Salvador - BA <br />
           CEP: 40261-015 <br />
-          Horário: 15:00 PM
+          Horário: 15:30 PM
         </p>
           <div className="evento__info">
             <div className="evento__info-item">

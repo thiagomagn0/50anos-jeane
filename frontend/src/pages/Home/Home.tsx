@@ -33,7 +33,7 @@ export default function Home() {
 
         </div>
             <p className="home__date">
-  11 de Julho • 15h
+  11 de Julho • 15:30h
 </p>
         <Countdown />
       <div className="home__whatsapp">
